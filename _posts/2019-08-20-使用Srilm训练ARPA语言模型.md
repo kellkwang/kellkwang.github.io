@@ -8,8 +8,9 @@ tags:
  - 语言模型
 ---
 
-### 一. 安装SRILM工具
-#### 1. 安装tcl
+### 安装SRILM工具
+
+#### 安装tcl
 
 下载tcl安装包：tcl8.6.8-src.tar.gz
 执行命令并安装：
@@ -22,7 +23,8 @@ make
 make install
 ```
 
-2. 安装srilm
+#### 安装srilm
+
 执行命令安装依赖
 
 ```shell
@@ -114,19 +116,23 @@ source .bashrc
 ```
 安装完毕！
 
-### 二. 训练模型
+### 训练模型
 
 训练模型需要文本原始语料，例如speechocean-train.txt，其内容及格式如下：
 
 
 > 一九九六年 雅虎 上市
+>
 > 二零一零年 规模 以上 工业 增长 值 同比 增长 十五点七
+>
 > 一 是 社会 政策 的 缺失 包括 社会 保障 医疗 教育 和 住房
+>
 > 丈夫 刘天恩 称 当时 调解 后 民兵 赔偿 七百 元
+>
 > 上海县 和 闵行区 相继 被 撤销 设 设立 新 的 闵行区
 
 
-#### 1. 词频统计
+#### 词频统计
 
 执行命令获取1gram词频统计
 
@@ -149,7 +155,7 @@ ngram-count -text speechocean-train.txt -order 3 -write speechocean-train-3gram.
 ngram-count -text speechocean-train.txt -order 4 -write speechocean-train-4gram.count
 ```
 
-#### 2. Ngram模型训练
+#### Ngram模型训练
 
 执行命令训练1gram语言模型
 
@@ -175,7 +181,7 @@ ngram-count -read speechocean-train-3gram.count -order 3 -lm speechocean-train-3
 ngram-count -read speechocean-train-4gram.count -order 4 -lm speechocean-train-4gram.arpa -interpolate -kndiscount
 ```
 
-#### 3.模型剪枝
+#### 模型剪枝
 
 对3gram语言模型进行剪枝操作
 
@@ -190,7 +196,7 @@ ngram -lm speechocean-train-3gram.arpa -order 3 -prune 0.0000001 -write-lm speec
 ngram -lm speechocean-train-3gram.arpa -order 3 -prune 0.0000003 -write-lm speechocean-train-3gram-pruned-0.0000003.arpa
 ```
 
-#### 4. 模型质量（困惑度）检查
+#### 模型质量（困惑度）检查
 
 可以对已经训练的所有模型进行困惑度检查，例如
 
@@ -198,16 +204,16 @@ ngram -lm speechocean-train-3gram.arpa -order 3 -prune 0.0000003 -write-lm speec
 ngram -ppl speechocean-train.txt -order 1 -lm speechocean-train-1gram.arpa -debug 2 > speechocean-train-1gram.ppl
 ```
 
-### 三. 模型文件压缩
+### 模型文件压缩
 
-执行命令压缩arpa文件，便于节省存储空间。
+执行命令压缩arpa文件，可以节省存储空间。
 
 ```shell
 gzip speechocean-train-3gram.arpa
 $ speechocean-train-3gram.arpa.gz
 ```
 
-### 四. 模型合并
+### 模型合并
 
 执行命令，可以将两个已经训练好的arpa模型合并在一起。
 
