@@ -13,7 +13,6 @@ tags:
  - FreeSwitch
 ---
 
-# mrcp-plugin-with-freeswitch 
 
 >github非每天登录，如有问题，请联系 wangkaisine@gmail.com，空闲时间回复，谢谢！
 
