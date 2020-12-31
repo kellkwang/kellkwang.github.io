@@ -12,7 +12,7 @@ tags:
 
 #### 安装tcl
 
-下载tcl安装包：tcl8.6.8-src.tar.gz ![tcl8.6.8-src.tar.gz](http://www.tcl.tk/software/tcltk/download.html)
+下载tcl安装包：tcl8.6.8-src.tar.gz [tcl8.6.8-src.tar.gz](http://www.tcl.tk/software/tcltk/download.html)
 
 执行命令并安装：
 
@@ -36,7 +36,7 @@ apt-get install gzip
 apt-get install bzip2
 apt-get install p7zip
 ```
-下载srilm安装包：srilm-1.7.2.tar.gz ![srilm-1.7.2.tar.gz](http://www.speech.sri.com/projects/srilm/download.html)  
+下载srilm安装包：srilm-1.7.2.tar.gz [srilm-1.7.2.tar.gz](http://www.speech.sri.com/projects/srilm/download.html)  
 
 执行命令并安装：
 
