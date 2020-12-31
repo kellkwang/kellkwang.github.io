@@ -2,9 +2,9 @@
 title: 使用Srilm训练ARPA语言模型
 description: 本文描述了如何使用Srilm工具训练ARPA格式的Ngram语言模型，从编译和安装开始，以几个简单句子为例，描述了模型训练，评价，剪枝，以及插值合并等。
 categories:
- - 自然语言
+ - 自然语言处理
 tags:
- - 自然语言
+ - 自然语言处理
  - 语言模型
 ---
 
