@@ -1,7 +1,7 @@
 ---
 title: 在CentOS上安装SGE
 date: 2018-10-10 10:22:06
-description: 本工程主要介绍了如何在CentOS上安装并使用SGE（Sun Grid Engine）。使用配合使用NFS的SGE搭建计算集群，可以实现任务多机器并行运行。
+description: 本工程主要介绍了如何在CentOS上安装并使用SGE（Sun Grid Engine）。使用配合使用NFS的SGE搭建计算集群，可以实现任务多机器并行运行，例如语音识别开源框架kaldi的使用。
 categories:
  - 工程
 tags:
@@ -12,17 +12,10 @@ tags:
 
 Install SGE On CentOS
 
-本工程主要介绍了如何在CentOS上安装并使用SGE（Sun Grid Engine）。使用配合使用NFS的SGE搭建计算集群，可以实现任务多机器并行运行。
+本工程主要介绍了如何在CentOS上安装并使用SGE（Sun Grid Engine）。使用配合使用NFS的SGE搭建计算集群，可以实现任务多机器并行运行，例如语音识别开源框架kaldi的使用。
 
-#### 工程文件夹说明
 
-softwares                      #安装包及其他软件包
-
-README.md                #安装、测试与SGE操作说明文档（本文件）
-
-## 一. 安装
-
-本次安装
+## 安装
 
 SGE安装包下载地址：  https://arc.liv.ac.uk/downloads/SGE/releases/8.1.9/sge-8.1.9.tar.gz
 
@@ -98,61 +91,61 @@ cd $SGE_ROOT
 安装过程中，需要同意一些默认配置。
 
 > press enter at the intro screen
-
+>
 > press "y" and then specify sgeadmin as the user id
-
+>
 > leave the install dir as /BiO/gridengine
-
+>
 > You will now be asked about port configuration for the master, normally you would choose the default (2) which uses the /etc/services file
-
+>
 > Accept the sge_qmaster info
-
+>
 > You will now be asked about port configuration for the master, normally you would choose the default (2) which uses the /etc/services file
-
+>
 > Accept the sge_execd info
-
+>
 > Leave the cell name as "default"
-
+>
 > Enter an appropriate cluster name when requested
-
+>
 > Leave the spool dir as is
-
+>
 > Press "n" for no windows hosts!
-
+>
 > Press "y" (permissions are set correctly)
-
+>
 > Press "y" for all hosts in one domain
-
+>
 > If you have Java available on your Qmaster and wish to use SGE Inspect or SDM then enable the JMX MBean server and provide the requested information - probably answer "n" at this point!
-
+>
 > Press enter to accept the directory creation notification
-
+>
 > E nter "classic" for classic spooling (berkeleydb may be more appropriate for large clusters)
-
+>
 > Press enter to accept the next notice
-
+>
 > Enter "20000-20100" as the GID range (increase this range if you have execution nodes capable of running more than 100 concurrent jobs)
-
+>
 > Accept the default spool dir or specify a different folder (for example if you wish to use a shared or local folder outside of SGE_ROOT
-
+>
 > Enter an email address that will be sent problem reports
-
+>
 > Press "n" to refuse to change the parameters you have just configured
-
+>
 > Press enter to accept the next notice
-
+>
 > Press "y" to install the startup scripts
-
+>
 > Press enter twice to confirm the following messages
-
+>
 > Press "n" for a file with a list of hosts
-
+>
 > Enter the names of your hosts who will be able to administer and submit jobs (enter alone to finish adding hosts)
-
+>
 > Skip shadow hosts for now (press "n")
-
+>
 > Choose "1" for normal configuration and agree with "y"
-
+>
 > Press enter to accept the next message and "n" to refuse to see the previous screen again and then finally enter to exit the installer
 
 命令行执行，安装NFS，将主控节点目录共享
