@@ -3,11 +3,10 @@ layout: page
 type: about
 ---
 
+<br/>
 ![sine](https://raw.githubusercontent.com/wangkaisine/wangkaisine.github.io/master/gallery/sine.png)
 
-<br/>
-
-<center>Sine</center>
+<center><font size=4>Sine</font></center>
 
 不混迹知乎，微博或Github，神出鬼没。
 
