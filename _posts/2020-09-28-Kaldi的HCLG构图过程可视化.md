@@ -16,6 +16,7 @@ tags:
 
 基于DNN-HMM的语音识别系统，需要在深度网络的推理之后外接解码来实现最后的语句识别，相关的语音识别理论基础不在此赘述，需要简单描述的是，解码实际上是得到音素状态转移的声学判决后，在一个HMM模型（H），Context Dependent Phone（C），Lexicon（L）和语言模型（G）合并的WFST（Weighted Finite-State Transducers，加权有限状态机）上进行路径寻优。WFST的基本概念和操作请查看：从WFST到语音识别。
 
+
 ### 语料准备
 
 #### 文本语料与发音词典
@@ -75,7 +76,7 @@ ngram-count -read train-3gram.count -order 3 -lm train-3gram.arpa
 /home/sine/kaldi/src/lmbin/arpa2fst --disambig-symbol=#0 --read-symbol-table=words.txt train-3gram.arpa G-3gram.fst
 ```
 
-#### 2.2 语法模型可视化
+#### 语法模型可视化
 
 执行如下命令将语法模型fst文件输出为dot格式文件：
 
@@ -122,15 +123,20 @@ dot -Tjpg G-3gram.dot > G-3gram.jpg
 语法模型图像如下：
 
 ![1元语法模型](/gallery/hclg/G-1gram.jpg)
+<center>1元语法模型</center>
+
 
 ![2元语法模型](/gallery/hclg/G-2gram.jpg)
+<center>2元语法模型</center>
+
 
 ![3元语法模型](/gallery/hclg/G-3gram.jpg)
+<center>3元语法模型</center>
 
 
-### 3. 构建发音词典模型（L.fst）
+### 构建发音词典模型（L.fst）
 
-#### 3.1 手动构造dict目录
+#### 构造dict目录
 
 手动创建dict文件夹，生成如下7个文件：
 
@@ -215,7 +221,7 @@ overall 0.31
 ```
 
 
-#### 3.2 lang文件夹与发音词典模型生成
+#### lang文件夹与发音词典模型生成
 
 使用kaldi脚本生成lang文件目录及相关文件。
 
@@ -226,7 +232,7 @@ utils/prepare_lang.sh /home/sine/ngram-test/data/dict "<UNK>" /home/sine/ngram-t
 
 在data/lang目录下的到L.fst和L_disambig.fst，其中L_disambig.fst为添加了消歧音素的发音词典模型。另外，还得到上述步骤需要的words.txt，以及后续步骤需要的topo、phones.txt、phones/disambig.int文件。
 
-#### 3.3 发音词典模型可视化
+#### 发音词典模型可视化
 
 执行如下命令将发音词典模型fst输出为dot格式文件：
 
@@ -254,9 +260,10 @@ dot -Tjpg L_disambig.dot > L_disambig.jpg
 
 ![消歧发音词典模型](/gallery/hclg/L_disambig.jpg)
 
-### 4. 合并发音词典与语法模型（LG.fst）
 
-#### 4.1 LdG.fst模型生成
+### 合并发音词典与语法模型（LG.fst）
+
+#### LdG.fst模型生成
 
 执行如下命令将L_disambig.fst分别与G-Ngram.fst合并，输出合并的LdG-Ngram.fst模型，同样的，可以将L.fst分别于G-Ngram.fst合并，得到对应的LG-Ngram.fst。
 
@@ -269,7 +276,7 @@ dot -Tjpg L_disambig.dot > L_disambig.jpg
 /home/sine/kaldi/tools/openfst/bin/fstcompose L.fst G-3gram.fst LG-3gram.fst
 ```
 
-#### 4.1 LdG.fst模型可视化
+#### LdG.fst模型可视化
 
 执行如下命令合并的LdG-Ngram.fst输出为dot格式文件：
 
@@ -299,16 +306,21 @@ dot -Tjpg LdG-3gram.dot > LdG-3gram.jpg
 合并的LdG-Ngram.fst模型图像如下：
 
 ![合并的LdG-1gram.fst模型](/gallery/hclg/LdG-1gram.jpg)
+<center>合并的LdG-1gram.fst模型</center>
+
 
 ![合并的LdG-2gram.fst模型](/gallery/hclg/LdG-2gram.jpg)
+<center>合并的LdG-2gram.fst模型</center>
+
 
 ![合并的LdG-3gram.fst模型](/gallery/hclg/LdG-3gram.jpg)
+<center>合并的LdG-3gram.fst模型</center>
 
 > 注：LG-Ngram.fst的可视化同上所述。
 
-### 5. 确定化发音词典与语法模型（det-LG.fst）
+### 确定化发音词典与语法模型（det-LG.fst）
 
-#### 5.1 确定化LG.fst模型
+#### 确定化LG.fst模型
 
 执行如下命令将LdG-Ngram模型进行确定化（determinize）
 
@@ -318,21 +330,25 @@ dot -Tjpg LdG-3gram.dot > LdG-3gram.jpg
 /home/sine/kaldi/tools/openfst/bin/fstdeterminize LdG-3gram.fst > det-LdG-3gram.fst
 ```
 
-#### 5.2 确定化LG.fst模型可视化
+#### 确定化LG.fst模型可视化
 
 使用上述与LdG.fst模型可视化相同的命令，将fst模型转为dot格式文件，修改对应dot文件中的size大小（相同）。使用dot命令输出图片。
 
 确定化的合并的det-LdG-Ngram.fst模型图像如下：
 
 ![确定化的合并的det-LdG-1gram.fst模型](/gallery/hclg/LdG-1gram.jpg)
+<center>确定化的合并的det-LdG-1gram.fst模型</center>
+
 
 ![确定化的合并的det-LdG-2gram.fst模型](/gallery/hclg/LdG-2gram.jpg)
+<center>确定化的合并的det-LdG-2gram.fst模型</center>
 
 ![确定化的合并的det-LdG-3gram.fst模型](/gallery/hclg/LdG-3gram.jpg)
+<center>确定化的合并的det-LdG-3gram.fst模型</center>
 
-### 6. 构建上下文模型与发音词典模型、语法模型（CLG.fst）
+### 构建上下文模型与发音词典模型、语法模型（CLG.fst）
 
-#### 6.1 合并上下文模型与LG.fst模型
+#### 合并上下文模型与LG.fst模型
 
 执行如下命令构建CLdG-Ngram.fst模型。
 
@@ -344,21 +360,25 @@ dot -Tjpg LdG-3gram.dot > LdG-3gram.jpg
 
 > 注：（1）其中的--context-size=1 --central-position=0选项表示，单音素模型，中间音素位置为0；（2）其中输入文件lang/phones/disambig.int来自上述3.2 lang文件夹与发音词典模型生成中产生的文件，输入文件LdG-Ngram.fst来自于上一步合并的LdG-Ngram.fst模型。
 
-#### 6.2 上下文CLG.fst模型可视化 
+#### 上下文CLG.fst模型可视化 
 
 使用上述与LdG.fst模型可视化相同的命令，将fst模型转为dot格式文件，修改对应dot文件中的size大小（相同）。使用dot命令输出图片。
 
 构建的上下文模型与发音词典模型、语法模型CLdG-Ngram.fst模型图像如下：
 
 ![上下文CLdG-1gram.fst模型](/gallery/hclg/CLdG-1gram.jpg)
+<center>上下文CLdG-1gram.fst模型</center>
 
 ![上下文CLdG-2gram.fst模型](/gallery/hclg/CLdG-2gram.jpg)
+<center>上下文CLdG-2gram.fst模型</center>
 
 ![上下文CLdG-3gram.fst模型](/gallery/hclg/CLdG-3gram.jpg)
+<center>上下文CLdG-3gram.fst模型</center>
 
-### 7. 构建HMM模型（H.fst）
 
-#### 7.1 单音素GNMM-HMM模型与Ha.fst生成 
+### 构建HMM模型（H.fst）
+
+#### 单音素GNMM-HMM模型与Ha.fst生成 
 
 构建HMM模型，需要先初始化定义GMM-HMM结构，确定音素绑定树结构，执行如下命令，生成初始化的GMM-HMM模型（gmm-init.mdl），和音素绑定树（phone.tree）。
 
@@ -374,7 +394,7 @@ dot -Tjpg LdG-3gram.dot > LdG-3gram.jpg
 
 > 注：（1）其中gmm-init-mono是生成单音素GMM模型，和上一步操作的--context-size=1 --central-position=0选项对应，gmm-init-model对应生成三音素GMM模型，对应的选项为--context-size=3 --central-position=1；（2）Ha.fst中的a表示没有自环（self-loop）。
 
-#### 7.2 Ha.fst模型可视化 
+#### Ha.fst模型可视化 
 
 执行如下命令，将Ha.fst模型输出为dot格式文件：
 
@@ -393,10 +413,12 @@ dot -Tjpg Ha.dot > Ha.jpg
 ```
 
 ![HMM Ha.fst模型](/gallery/hclg/Ha.jpg)
+<center>HMM Ha.fst模型</center>
 
-### 8. 合并HMM模型，上下文模型、发音词典模型、语法模型（HCLG.fst）
 
-#### 8.1 合并Ha.fst模型与CLdG-Ngram.fst模型
+### 合并HMM模型，上下文模型、发音词典模型、语法模型（HCLG.fst）
+
+#### 合并Ha.fst模型与CLdG-Ngram.fst模型
 
 执行如下命令，合并Ha.fst与CLdG-Ngram.fst模型：
 
@@ -438,7 +460,7 @@ dot -Tjpg Ha.dot > Ha.jpg
 /home/sine/kaldi/src/bin/add-self-loops --self-loop-scale=0.1 --reorder=true data/gmm-init.mdl < min-det-HaCLG-3gram.fst > min-det-HCLG-3gram.fst
 ```
 
-#### 8.2 min-det-HCLG-Ngram.fst模型可视化
+#### min-det-HCLG-Ngram.fst模型可视化
 
 
 执行如下命令合并的LdG-Ngram.fst输出为dot格式文件：
@@ -469,7 +491,11 @@ dot -Tjpg min-det-HCLG-3gram.dot > min-det-HCLG-3gram.jpg
 最终的min-det-HCLG-Ngram.fst模型图像如下：
 
 ![min-det-HCLG-1gram.fst模型](/gallery/hclg/min-det-HCLG-1gram.jpg)
+<center>min-det-HCLG-1gram.fst模型</center>
 
 ![min-det-HCLG-2gram.fst模型](/gallery/hclg/min-det-HCLG-2gram.jpg)
+<center>min-det-HCLG-2gram.fst模型</center>
 
 ![min-det-HCLG-3gram.fst模型](/gallery/hclg/min-det-HCLG-3gram.jpg)
+<center>min-det-HCLG-3gram.fst模型</center>
+
