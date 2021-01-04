@@ -5,7 +5,7 @@ description: 使用FreeSWITCH接受用户手机呼叫，通过UniMRCP Server集�
 categories:
  - 工程
 photos:
- - https://raw.githubusercontent.com/wangkaisine/wangkaisine.github.io/master/gallery/mrcp/mrcp_00.png
+ - /gallery/mrcp/mrcp_00.png
 tags:
  - 语音识别
  - IVR
@@ -24,7 +24,7 @@ tags:
 
 #### 总体结构如下图所示：
 
-![image](https://raw.githubusercontent.com/wangkaisine/wangkaisine.github.io/master/gallery/mrcp/mrcp_00.png)
+![mrcp_00](/gallery/mrcp/mrcp_00.png)
 
 ## 构建步骤
 
@@ -504,7 +504,7 @@ end
 
 在App Store（其他手机系统请到对应应用市场）中搜索“Adore SIP Client”，并下载。
 
-![image](https://raw.githubusercontent.com/wangkaisine/wangkaisine.github.io/master/gallery/mrcp/mrcp_01.png)
+![mrcp_01](/gallery/mrcp/mrcp_01.png)
 
 其中SIP IP是FreeSWITCH服务开启的主机IP与port（默认为5060），USER NAME如上所述可选1000-1019，PASSWORD默认为1234。点击"Login"（请确保手机连接的网络与FreeSWITCH在同一个子网内），并拨打5001进行语言测试验证（如果您是从第一步跳转过来的，请拨打5000）。
 

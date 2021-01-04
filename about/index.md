@@ -4,7 +4,7 @@ type: about
 ---
 
 <br/>
-![sine](https://raw.githubusercontent.com/wangkaisine/wangkaisine.github.io/master/gallery/sine.png)
+![sine](/gallery/sine.png)
 
 <center><font size=4>Sine</font></center>
 

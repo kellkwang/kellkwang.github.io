@@ -5,7 +5,7 @@ description: 本文希望通过简单的中文三句话，将整个HCLG的过程
 categories:
  - 语音识别
 photos:
- - https://raw.githubusercontent.com/wangkaisine/wangkaisine.github.io/master/gallery/hclg/HCLG.png
+ - /gallery/hclg/HCLG.png
 tags:
  - 语音识别
  - kaldi
