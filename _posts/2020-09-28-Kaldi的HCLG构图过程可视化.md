@@ -124,15 +124,13 @@ dot -Tjpg G-3gram.dot > G-3gram.jpg
 
 ![1元语法模型](/gallery/hclg/G-1gram.jpg)
 <center>1元语法模型</center>
-
-
+<br/>
 ![2元语法模型](/gallery/hclg/G-2gram.jpg)
 <center>2元语法模型</center>
-
-
+<br/>
 ![3元语法模型](/gallery/hclg/G-3gram.jpg)
 <center>3元语法模型</center>
-
+<br/>
 
 ### 构建发音词典模型（L.fst）
 
@@ -257,9 +255,11 @@ dot -Tjpg L_disambig.dot > L_disambig.jpg
 发音词典模型图像如下：
 
 ![发音词典模型](/gallery/hclg/L.jpg)
-
+<center>发音词典模型</center>
+<br/>
 ![消歧发音词典模型](/gallery/hclg/L_disambig.jpg)
-
+<center>消歧发音词典模型</center>
+<br/>
 
 ### 合并发音词典与语法模型（LG.fst）
 
@@ -307,15 +307,13 @@ dot -Tjpg LdG-3gram.dot > LdG-3gram.jpg
 
 ![合并的LdG-1gram.fst模型](/gallery/hclg/LdG-1gram.jpg)
 <center>合并的LdG-1gram.fst模型</center>
-
-
+<br/>
 ![合并的LdG-2gram.fst模型](/gallery/hclg/LdG-2gram.jpg)
 <center>合并的LdG-2gram.fst模型</center>
-
-
+<br/>
 ![合并的LdG-3gram.fst模型](/gallery/hclg/LdG-3gram.jpg)
 <center>合并的LdG-3gram.fst模型</center>
-
+<br/>
 > 注：LG-Ngram.fst的可视化同上所述。
 
 ### 确定化发音词典与语法模型（det-LG.fst）
@@ -338,13 +336,13 @@ dot -Tjpg LdG-3gram.dot > LdG-3gram.jpg
 
 ![确定化的合并的det-LdG-1gram.fst模型](/gallery/hclg/LdG-1gram.jpg)
 <center>确定化的合并的det-LdG-1gram.fst模型</center>
-
-
+<br/>
 ![确定化的合并的det-LdG-2gram.fst模型](/gallery/hclg/LdG-2gram.jpg)
 <center>确定化的合并的det-LdG-2gram.fst模型</center>
-
+<br/>
 ![确定化的合并的det-LdG-3gram.fst模型](/gallery/hclg/LdG-3gram.jpg)
 <center>确定化的合并的det-LdG-3gram.fst模型</center>
+<br/>
 
 ### 构建上下文模型与发音词典模型、语法模型（CLG.fst）
 
@@ -368,13 +366,13 @@ dot -Tjpg LdG-3gram.dot > LdG-3gram.jpg
 
 ![上下文CLdG-1gram.fst模型](/gallery/hclg/CLdG-1gram.jpg)
 <center>上下文CLdG-1gram.fst模型</center>
-
+<br/>
 ![上下文CLdG-2gram.fst模型](/gallery/hclg/CLdG-2gram.jpg)
 <center>上下文CLdG-2gram.fst模型</center>
-
+<br/>
 ![上下文CLdG-3gram.fst模型](/gallery/hclg/CLdG-3gram.jpg)
 <center>上下文CLdG-3gram.fst模型</center>
-
+<br/>
 
 ### 构建HMM模型（H.fst）
 
@@ -414,7 +412,7 @@ dot -Tjpg Ha.dot > Ha.jpg
 
 ![HMM Ha.fst模型](/gallery/hclg/Ha.jpg)
 <center>HMM Ha.fst模型</center>
-
+<br/>
 
 ### 合并HMM模型，上下文模型、发音词典模型、语法模型（HCLG.fst）
 
@@ -492,10 +490,10 @@ dot -Tjpg min-det-HCLG-3gram.dot > min-det-HCLG-3gram.jpg
 
 ![min-det-HCLG-1gram.fst模型](/gallery/hclg/min-det-HCLG-1gram.jpg)
 <center>min-det-HCLG-1gram.fst模型</center>
-
+<br/>
 ![min-det-HCLG-2gram.fst模型](/gallery/hclg/min-det-HCLG-2gram.jpg)
 <center>min-det-HCLG-2gram.fst模型</center>
-
+<br/>
 ![min-det-HCLG-3gram.fst模型](/gallery/hclg/min-det-HCLG-3gram.jpg)
 <center>min-det-HCLG-3gram.fst模型</center>
-
+<br/>
