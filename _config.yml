@@ -367,7 +367,7 @@ mathjax:
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # Han Support docs: https://hanzi.pro/
-han: false
+han: true
 
 # Swiftype Search API Key
 #swiftype_key:
@@ -462,7 +462,7 @@ gitalk:
 #google_site_verification:
 
 # Google Analytics
-google_analytics:G-88MQR48TST
+google_analytics: G-C9FFSFJCLL
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
