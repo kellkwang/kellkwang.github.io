@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Sine's Blog
+title: Kell's Blog
 subtitle:
 description:
-author: Sine
+author: Kell
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
 date_format: '%Y-%m-%d'
@@ -79,7 +79,7 @@ plugins:
 favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Sine, Jekyll, NexT"
+keywords: "Kell, Jekyll, NexT"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
